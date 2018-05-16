@@ -1,17 +1,30 @@
 <h1>Add a Job</h1>
 
+<% if @job.errors.any? %>
+  <div class="alert alert-primary">
+    <p><%= pluralize(@job.errors.count, "error") %> prevented your job from being created</p>
+    <ul>
+      <% @job.errors.messages.each do |field,errors| %>
+        <% errors.each do |error| %>
+          <li><%= field %> <%= error %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @job do |f| %>
   <div>
-    <%= f.label :title, "Job Title" %>
-    <%= f.text_field :title %>
+    <%= f.label :title, "Job Title (minimum 5 characters)" %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div>
-    <%= f.label :description, "Job Description" %>
-    <%= f.text_area :description, size: '60x6' %>
+    <%= f.label :description, "Job Description (minimum 20 characters)" %>
+    <%= f.text_area :description, class: 'form-control'  %>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="mt-3">
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
