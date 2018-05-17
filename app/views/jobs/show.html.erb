@@ -1,0 +1,10 @@
+<h1><%= @job.title %></h1>
+<p><%= @job.description %></p>
+
+
+<p><%= link_to "Edit Posting", edit_job_path(@job), class: 'btn btn-info' %></p>
+
+<p><%= link_to "Delete Posting", @job, method: :delete,
+        class: 'btn btn-danger', data: {confirm: "Are you sure?"} %></p>
+        
+<p>Last Updated: <%= time_ago_in_words(@job.updated_at) %> ago</p>

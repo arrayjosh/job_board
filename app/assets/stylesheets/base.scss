@@ -2,3 +2,12 @@ $primary:       rebeccapurple !default;
 
 // Custom bootstrap
 @import "bootstrap";
+
+main {
+  min-height: 75vh;
+  background-image: image-url('galaxy.jpg');
+}
+
+footer a {
+  color: $light;
+}

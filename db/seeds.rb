@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+500.times do
+  phrases = []
+
+  5.times do
+    phrases << Faker::Company.catch_phrase
+  end
+
+  Job.create!({
+    title: Faker::Job.title,
+    description: phrases.join(', ')
+  })
+end
