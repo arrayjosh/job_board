@@ -1,8 +1,9 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :destroy, :show]
+  has_scope :search
 
   def index
-    @jobs = Job.page(params[:page])
+    @jobs = apply_scopes(Job).page(params[:page])
   end
 
   def show

@@ -70,6 +70,9 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    has_scope (0.7.2)
+      actionpack (>= 4.1)
+      activesupport (>= 4.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -198,6 +201,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   faker
+  has_scope
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
