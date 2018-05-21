@@ -5,4 +5,6 @@ class Job < ApplicationRecord
   scope :search, -> search {where("jobs.title LIKE '%#{search}%' OR jobs.description LIKE '%#{search}%'")}
 
   paginates_per 15
+
+  belongs_to :user
 end
