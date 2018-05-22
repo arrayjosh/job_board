@@ -1,0 +1,32 @@
+<h1><%= @profile.firstname %> <%= @profile.lastname %></h1>
+<p>
+  <strong>Email: </strong> <%= @profile.email %>
+</p>
+<p>
+  <strong>About <%= @profile.firstname %>: </strong> <%= @profile.description %>
+</p>
+
+<h1>Jobs posted by <%= @profile.firstname %></h1>
+
+<%= paginate @jobs %>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <th scope="row"><%= job.id %></th>
+        <td><%= link_to job.title, job %></td>
+        <td><%= job.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @jobs %>

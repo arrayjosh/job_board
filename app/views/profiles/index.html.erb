@@ -1,0 +1,24 @@
+<h1>User Profiles</h1>
+
+<%= paginate @profiles %>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <th scope="row"><%= profile.id %></th>
+        <td><%= profile.firstname %></td>
+        <td><%= profile.lastname %></td>
+        <td><%= link_to profile.email, profile_path(profile) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
